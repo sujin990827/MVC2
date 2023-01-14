@@ -8,16 +8,19 @@ import hello.typeconverter.converter.IntegerToStringConverter;
 import hello.typeconverter.converter.IpPortToStringConverter;
 import hello.typeconverter.converter.StringToIntegerConverter;
 import hello.typeconverter.converter.stringToIpPortConverter;
+import hello.typeconverter.formatter.MyNumberFormatter;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
-		registry.addConverter(new StringToIntegerConverter());
-		registry.addConverter(new IntegerToStringConverter());
+		//registry.addConverter(new StringToIntegerConverter());
+		//registry.addConverter(new IntegerToStringConverter());
 		registry.addConverter(new stringToIpPortConverter());
 		registry.addConverter(new IpPortToStringConverter());
 
+		//추가
+		registry.addFormatter(new MyNumberFormatter());
 	}
 }
